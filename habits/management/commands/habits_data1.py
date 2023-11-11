@@ -15,7 +15,7 @@ class Command(BaseCommand):
             {
                 "name": "Пробежка",
                 "id_user": User.objects.get(pk=1),
-                "action": "Бег",
+                "action": ",Бегать",
                 "time_begin": "2023-09-09T08:00:00",
                 "place": "тренжерный зал",
                 "award": "Сьесть эклер",

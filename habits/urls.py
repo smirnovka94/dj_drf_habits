@@ -1,16 +1,16 @@
 from django.urls import path
 
-from lessons.apps import LessonsConfig
-from lessons.views import LessonCreateAPIView, LessonListAPIView, LessonRetrieveAPIView, LessonUpdateAPIView, \
-    LessonDestroyAPIView
+from habits.apps import HabitsConfig
+from habits.views import HabitCreateAPIView, HabitListAPIView, HabitRetrieveAPIView, HabitUpdateAPIView, \
+    HabitDestroyAPIView
 
-app_name = LessonsConfig.name
+app_name = HabitsConfig.name
 
 urlpatterns = [
-    path('lesson/create/', LessonCreateAPIView.as_view(), name='lesson_create'),
-    path('lesson/', LessonListAPIView.as_view(), name='lesson_list'),
-    path('lesson/<int:pk>/', LessonRetrieveAPIView.as_view(), name='lesson_get'),
-    path('lesson/update/<int:pk>/', LessonUpdateAPIView.as_view(), name='lesson_update'),
-    path('lesson/delete/<int:pk>/', LessonDestroyAPIView.as_view(), name='lesson_delete'),
+    path('habit/create/', HabitCreateAPIView.as_view(), name='habit_create'),
+    path('habit/', HabitListAPIView.as_view(), name='habit_list'),
+    path('habit/<int:pk>/', HabitRetrieveAPIView.as_view(), name='habit_get'),
+    path('habit/update/<int:pk>/', HabitUpdateAPIView.as_view(), name='habit_update'),
+    path('habit/delete/<int:pk>/', HabitDestroyAPIView.as_view(), name='habit_delete'),
 ]
 
