@@ -1,20 +1,20 @@
 # Установка и использование
 Клонируем репозиторий
 
-Устанавливаем виртуальное окружение 
+#### Устанавливаем виртуальное окружение 
 ```
 python -m venv env
 ```
-Запускаем Виртуальнео окружение
+#### Запускаем Виртуальное окружение
 ```
 env\Scripts\activate.bat
 ```
-Устанавливаем библиотеки
+#### Устанавливаем библиотеки
 ```
 pip install -r requirements.txt
 ```
 
-Создаем базу данных в PgAdmin с именем <drf_test>
+#### Создаем базу данных в PgAdmin с именем <drf_test>
 Создаем файл<.env>
 .env.template переименовать на .env
 
@@ -23,15 +23,13 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 ```
-Загрузить базу данных
+#### Загрузить базу данных
 ```
-python manage.py loaddata users_data.json
-python manage.py loaddata course_data.json
-python manage.py loaddata lesson_data.json
-
-
+python manage.py users_data
+python manage.py habits_data1
+python manage.py habits_data2
 ```
-Создаем superuser
+#### Создаем superuser
 login: kirill@sky.pro
 password: qwerty88
 ```

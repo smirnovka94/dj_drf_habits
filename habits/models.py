@@ -25,7 +25,7 @@ class Habit(models.Model):
     place = models.CharField(max_length=30, verbose_name='место')
     is_pleasant_habit = models.BooleanField(default=False,verbose_name='признак_приятной_привычки',**NULLABLE)
     time_period = models.CharField(max_length=30, choices=PERIOD_CHOICES, default='DAY', verbose_name='периодичность привычки',**NULLABLE)
-    award = models.CharField(max_length=30, verbose_name='вознаграждение')
+    award = models.CharField(max_length=30, verbose_name='вознаграждение',**NULLABLE)
     time_limit = models.DurationField(verbose_name='время на выполнение',**NULLABLE)
     is_public = models.BooleanField(default=False, verbose_name='признак_публичности',**NULLABLE)
 
