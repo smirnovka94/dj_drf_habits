@@ -1,9 +1,9 @@
 from rest_framework.serializers import ValidationError
-class ContentValidator:
-    def __init__(self, field):
-        self.field = field
+class Related_or_Pleasant_HabitValidator:
 
-    def __call__(self, value):
-        temp_val = dict(value).get(self.field)
-        if not('www.youtube.com' in temp_val):
-            raise ValidationError("Content is not valid")
+    def __call__(self, attrs):
+        related_habit = attrs.get('related_habit')
+        is_pleasant_habit = attrs.get('is_pleasant_habit')
+
+        if (related_habit and is_pleasant_habit) or (not related_habit and not is_pleasant_habit):
+            raise ValidationError('Вы должны указать либо связанную привычку, либо признак приятной привычки')
