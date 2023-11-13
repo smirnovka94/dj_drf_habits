@@ -18,8 +18,9 @@ class Command(BaseCommand):
                 "action": "Читать книгу",
                 "time_begin": "2023-09-09 18:00:00",
                 "place": "дома",
-                "related_habit": Habit.objects.get(pk=1),
+                "related_habit": Habit.objects.get(pk=2),
                 "time_limit": "PT30M",
+                "is_pleasant_habit": "True"
             },
         ]
 

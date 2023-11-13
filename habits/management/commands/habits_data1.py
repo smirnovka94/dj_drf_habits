@@ -1,15 +1,11 @@
 from django.core.management import BaseCommand
-
 from habits.models import Habit
-
 from users.models import User
-
 
 class Command(BaseCommand):
     """
     Класс привычек.
     """
-
     def handle(self, *args, **kwargs):
         habits_list = [
             {
@@ -17,18 +13,21 @@ class Command(BaseCommand):
                 "id_user": User.objects.get(pk=1),
                 "action": "Бегать",
                 "time_begin": "2023-09-09T08:00:00",
-                "place": "тренжерный зал",
+                "place": "в тренжерном зале",
                 "award": "Сьесть эклер",
-                "time_limit": "PT10M",
+                "time_limit": "PT2M",
+                "time_period": "PT72H",
             },
             {
                 "name": "Залипать в Инсте",
                 "id_user": User.objects.get(pk=2),
                 "action": "Скролить ленту",
                 "time_begin": "2023-09-09T08:10:00",
-                "place": "без места",
+                "place": "в любом месте",
+                "is_pleasant_habit": "True",
                 "time_limit": "PT2M",
                 "is_public": True,
+
             },
         ]
 
