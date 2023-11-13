@@ -8,26 +8,55 @@ class Command(BaseCommand):
     """
     def handle(self, *args, **kwargs):
         habits_list = [
+            # {
+            #     "name": "Пробежка",
+            #     "id_user": User.objects.get(pk=1),
+            #     "action": "Бегать",
+            #     "time_begin": "2023-09-09T08:00:00",
+            #     "place": "в тренжерном зале",
+            #     "award": "Сьесть эклер",
+            #     "time_limit": "PT2M",
+            #     "time_period": "PT72H",
+            # },
+            # {
+            #     "name": "Залипать в Инсте",
+            #     "id_user": User.objects.get(pk=2),
+            #     "action": "Скролить ленту",
+            #     "time_begin": "2023-09-09T08:10:00",
+            #     "place": "в любом месте",
+            #     "is_pleasant_habit": "True",
+            #     "time_limit": "PT2M",
+            #     "is_public": True,
+            # },
             {
-                "name": "Пробежка",
+                "name": "Слушать музыку",
                 "id_user": User.objects.get(pk=1),
-                "action": "Бегать",
-                "time_begin": "2023-09-09T08:00:00",
-                "place": "в тренжерном зале",
-                "award": "Сьесть эклер",
-                "time_limit": "PT2M",
-                "time_period": "PT72H",
-            },
-            {
-                "name": "Залипать в Инсте",
-                "id_user": User.objects.get(pk=2),
-                "action": "Скролить ленту",
+                "action": "Слушать музыку",
                 "time_begin": "2023-09-09T08:10:00",
                 "place": "в любом месте",
                 "is_pleasant_habit": "True",
                 "time_limit": "PT2M",
                 "is_public": True,
-
+            },
+            {
+                "name": "Готовить",
+                "id_user": User.objects.get(pk=1),
+                "action": "Готовить пиццу",
+                "time_begin": "2023-09-09T08:10:00",
+                "place": "дома",
+                "is_pleasant_habit": "True",
+                "time_limit": "PT2M",
+                "is_public": True,
+            },
+            {
+                "name": "Общаться с друзьми",
+                "id_user": User.objects.get(pk=1),
+                "action": "Звонить друзьям",
+                "time_begin": "2023-09-09T08:10:00",
+                "place": "в любом месте",
+                "is_pleasant_habit": "True",
+                "time_limit": "PT2M",
+                "is_public": True,
             },
         ]
 
