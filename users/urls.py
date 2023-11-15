@@ -9,8 +9,8 @@ from users.views import UserListAPIView, UserUpdateAPIView, UserRetrieveAPIView
 
 app_name = UsersConfig.name
 urlpatterns = [
-    # path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    # path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('', UserListAPIView.as_view(), name='users_list'),
     path('update/<int:pk>/', UserUpdateAPIView.as_view(), name='users_update'),
     path('<int:pk>/', UserRetrieveAPIView.as_view(), name='users_view'),

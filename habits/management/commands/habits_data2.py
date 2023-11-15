@@ -14,34 +14,34 @@ class Command(BaseCommand):
         habits_list = [
             {
                 "name": "Читать книгу",
-                "id_user": User.objects.get(pk=1),
+                "id_user": User.objects.get(pk=2),
                 "action": "Читать книгу",
                 "time_begin": "2023-09-09 18:00:00",
                 "place": "дома",
                 "related_habit": Habit.objects.get(pk=2),
-                "time_limit": "PT60M",
-                "time_period": "PT48H"
+                "time_limit_seconds": 3600,
+                "time_period_days": 2
             },
 
-            {            {
+            {
                 "name": "Просмотреть урок",
                 "id_user": User.objects.get(pk=1),
                 "action": "Изучить урок",
                 "time_begin": "2023-09-09 18:00:00",
                 "place": "в любом месте",
                 "related_habit": Habit.objects.get(pk=3),
-                "time_limit": "PT90M",
-                "time_period": "PT48H"
+                "time_limit_seconds": 54,
+                "time_period_days": 2
             },
             {
                 "name": "Глажка белья ",
-                "id_user": User.objects.get(pk=1),
+                "id_user": User.objects.get(pk=2),
                 "action": "Гладить одежду",
                 "time_begin": "2023-09-09 18:00:00",
                 "place": "дома",
                 "related_habit": Habit.objects.get(pk=5),
-                "time_limit": "PT60M",
-                "time_period": "PT72H"
+                "time_limit_seconds": 3600,
+                "time_period_days": 3
             },
             {
                 "name": "Генеральная уборка",
@@ -50,18 +50,18 @@ class Command(BaseCommand):
                 "time_begin": "2023-09-09 10:00:00",
                 "place": "дома",
                 "related_habit": Habit.objects.get(pk=4),
-                "time_limit": "PT30M",
-                "time_period": "PT168H"
+                "time_limit_seconds": 1800,
+                "time_period_days": 7
             },
             {
                 "name": "Стирка белья",
-                "id_user": User.objects.get(pk=1),
+                "id_user": User.objects.get(pk=2),
                 "action": "Стирка",
                 "time_begin": "2023-09-09 18:00:00",
                 "place": "дома",
                 "related_habit": Habit.objects.get(pk=3),
-                "time_limit": "PT20M",
-                "time_period": "PT72H"
+                "time_limit_seconds": 2400,
+                "time_period_days": 3
             },
             {
                 "name": "Тусить с друзьями",
@@ -70,8 +70,8 @@ class Command(BaseCommand):
                 "time_begin": "2023-09-09T08:10:00",
                 "place": "в баре",
                 "is_pleasant_habit": "True",
-                "time_limit": "PT168M",
-                "is_public": True,
+                "time_limit_seconds": 120,
+                "is_public": True
             },
 
         ]

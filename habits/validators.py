@@ -1,3 +1,4 @@
+import datetime
 from rest_framework.serializers import ValidationError
 class Related_or_Award_HabitValidator:
     """Исключить одновременный выбор связанной привычки и указания вознаграждения"""
@@ -11,8 +12,8 @@ class Related_or_Award_HabitValidator:
 class Time_Limit_HabitValidator:
     """Время выполнения должно быть не больше 120 секунд."""
     def __call__(self, attrs):
-        time_limit = attrs.get('time_limit')
-        if time_limit.total_seconds()>120:
+        time_limit = attrs.get('time_limit_seconds')
+        if time_limit > 120:
             raise ValidationError('Время на выполнение не более 2х минут')
 
 class Related_is_pleasant_habit_HabitValidator:
@@ -37,6 +38,6 @@ class Pleasant_HabitValidator:
 class Time_period_HabitValidator:
     """Нельзя выполнять привычку реже, чем 1 раз в 7 дней"""
     def __call__(self, attrs):
-        time_period = attrs.get('time_period')
-        if time_period.total_seconds() > 604800:
+        time_period = attrs.get('time_period_days')
+        if time_period > 7:
             raise ValidationError('Нельзя выполнять привычку реже, чем 1 раз в 7 дней')
