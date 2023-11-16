@@ -18,6 +18,12 @@ class HabitListAPIView(generics.ListAPIView):
         user = self.request.user
         return Habit.objects.filter(Q(id_user=user) | Q(is_public=True))
 
+class HabitPublicListAPIView(generics.ListAPIView):
+    serializer_class = HabitSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Habit.objects.filter(is_public=True)
 
 class HabitRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = HabitSerializer
