@@ -1,5 +1,5 @@
-import datetime
 from rest_framework.serializers import ValidationError
+
 class Related_or_Award_HabitValidator:
     """Исключить одновременный выбор связанной привычки и указания вознаграждения"""
     def __call__(self, attrs):

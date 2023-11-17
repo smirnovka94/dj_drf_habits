@@ -10,7 +10,7 @@ class User(AbstractUser):
     username = models.CharField(max_length=150,unique=True,verbose_name='username')
     email = models.EmailField(unique=True, verbose_name='email')
     password = models.CharField(max_length=100,verbose_name='password')
-
+    telegram_id = models.IntegerField(verbose_name="chat_id - пользователя телеграмм",**NULLABLE)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 

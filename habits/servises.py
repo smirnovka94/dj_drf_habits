@@ -1,19 +1,21 @@
-import os
-from dotenv import load_dotenv
-import requests
+import json
+from datetime import datetime, timedelta
 
-load_dotenv(dotenv_path='.env')
+from django_celery_beat.models import PeriodicTask, \
+    IntervalSchedule
 
-token = os.getenv('TG_TOKEN')
-user_id = os.getenv('TG_NAME_ID')
+schedule, created = IntervalSchedule.objects.get_or_create(
+     every=10,
+     period=IntervalSchedule.SECONDS,
+ )
 
-def send_tg(user_id, message):
-    url = f'https://api.telegram.org/bot{token}/sendMessage'
-    data = {
-        'chat_id': user_id,
-        'text': message
-    }
-    response = requests.post(url, data=data)
-    print(response.json())
-
-send_tg(user_id, 'test')
+PeriodicTask.objects.create(
+     interval=schedule,
+     name='long_active_user',
+     task='courses.tasks.mailing_telegram',
+     args=json.dumps(['arg1', 'arg2']),
+     kwargs=json.dumps({
+        'be_careful': True,
+     }),
+     expires=datetime.utcnow() + timedelta(seconds=30)
+ )

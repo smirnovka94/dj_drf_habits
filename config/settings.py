@@ -21,12 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = BASE_DIR / '.env'
 load_dotenv(dotenv_path=env_path)
 
+TG_TOKEN = os.getenv('TG_TOKEN')
+TG_NAME_ID = os.getenv('TG_NAME_ID')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%7ix7n@&eu$ub8yw(@(@o70p^av)os&9+0ue+o&di2vb$n3l8-'
+SECRET_KEY = os.getenv('SECRET_KEY')#'django-insecure-%7ix7n@&eu$ub8yw(@(@o70p^av)os&9+0ue+o&di2vb$n3l8-'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -193,18 +195,18 @@ CELERY_BROKER_URL = 'redis://localhost:6379' # Например, Redis, кото
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 
 
-# CELERY_BEAT_SCHEDULE = {
-#     'task-name': {
-#         'task': 'courses.tasks.check_filter',  # Путь к задаче
-#         'schedule': timedelta(minutes=10),  # Расписание выполнения задачи (например, каждые 10 минут)
-#     },
-# }
+CELERY_BEAT_SCHEDULE = {
+    'task-name': {
+        'task': 'courses.tasks.mailing_telegram',  # Путь к задаче
+        'schedule': timedelta(minutes=10),  # Расписание выполнения задачи (например, каждые 10 минут)
+    },
+}
+
+# Часовой пояс для работы Celery
+CELERY_TIMEZONE = "Europe/Moscow"
+
+# Флаг отслеживания выполнения задач
+CELERY_TASK_TRACK_STARTED = True
 #
-# # Часовой пояс для работы Celery
-# CELERY_TIMEZONE = "Europe/Moscow"
-#
-# # Флаг отслеживания выполнения задач
-# CELERY_TASK_TRACK_STARTED = True
-# #
-# # Максимальное время на выполнение задачи
-# CELERY_TASK_TIME_LIMIT = 30 * 60
+# Максимальное время на выполнение задачи
+CELERY_TASK_TIME_LIMIT = 30 * 60

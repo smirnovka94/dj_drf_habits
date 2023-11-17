@@ -16,6 +16,7 @@ class HabitListAPIView(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
+        # return Habit.objects.all()
         return Habit.objects.filter(Q(id_user=user) | Q(is_public=True))
 
 class HabitPublicListAPIView(generics.ListAPIView):
