@@ -23,15 +23,17 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 ```
-#### Загрузить базу данных
-```
-python manage.py users_data
-python manage.py habits_data1
-python manage.py habits_data2
-```
+
 #### Создаем superuser
 login: kirill@sky.pro
 password: qwerty88
 ```
 python manage.py super_user
+```
+
+#### Загрузить базу данных
+```
+python manage.py users_data
+python manage.py habits_data1
+python manage.py habits_data2
 ```
