@@ -12,7 +12,7 @@ schedule, created = IntervalSchedule.objects.get_or_create(
 PeriodicTask.objects.create(
      interval=schedule,
      name='mailing_telegram',
-     task='courses.tasks.mailing_telegram',
+     task='habits.tasks.mailing_telegram',
      args=json.dumps(['arg1', 'arg2']),
      kwargs=json.dumps({
         'be_careful': True,

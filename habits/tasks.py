@@ -48,10 +48,10 @@ def habit_massage(obj):
     else:
         return f"Готовся {action}"
 
-@shared_task
+
 def mailing_telegram():
     """Основное тело программы"""
-    habits = Habit.objects.filter(is_pleasant_habit=False),exit()
+    habits = Habit.objects.filter(is_pleasant_habit=False).exit()
     for habit in habits:
         if not habit.is_pleasant_habit:  # Если привычка без признака приятная то выполняй код
             time_begin_habit = habit.time_begin  # Дата начала привычки при регистрации
