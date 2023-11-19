@@ -37,3 +37,10 @@ python manage.py users_data
 python manage.py habits_data1
 python manage.py habits_data2
 ```
+#### Добавить пользователям ID Телеграмм чата
+заполнить параметр: User.telegram_id
+
+#### Локальный тест файл для отправлки сообщения в телеграмм
+```
+python manage.py test_run_send_TG
+```
