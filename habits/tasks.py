@@ -50,13 +50,9 @@ def habit_massage(obj):
 
 
 @shared_task
-def print_work():
-    print("Hello World")
-
-@shared_task
 def mailing_telegram():
     """Основное тело программы"""
-    habits = Habit.objects.filter(is_pleasant_habit=False).exit()
+    habits = Habit.objects.filter(is_pleasant_habit=False)
     for habit in habits:
         if not habit.is_pleasant_habit:  # Если привычка без признака приятная то выполняй код
             time_begin_habit = habit.time_begin  # Дата начала привычки при регистрации
@@ -70,14 +66,10 @@ def mailing_telegram():
 
                 message = habit_massage(habit)
                 send_tg(user_id, message)
-
             # Если дата начала привычки раньше текущей даты то обновляй дату относительно периодичности
             elif time_begin_habit < time_up:
-                days = habit.time_period_days
+                days = habit.time_period_day
                 if days:
                     while habit.time_begin < time_up:
                         habit.time_begin = habit.time_begin + datetime.timedelta(hours=24 * days)
                         habit.save()
-
-
-# mailing_telegram()
