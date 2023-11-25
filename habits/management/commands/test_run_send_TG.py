@@ -73,7 +73,7 @@ class Command(BaseCommand):
                 # диапазон времени в который текащая data_time должна попасть
                 time_up = timezone.now() - datetime.timedelta(minutes=5)
                 time_after = timezone.now() + datetime.timedelta(minutes=5)
-                print(habit)
+                # print(habit)
                 if time_up <= time_begin_habit <= time_after: #При времени X отправляй сообщение в телегу
                     user_id = habit.id_user.telegram_id
                     message = self.habit_massage(habit)
