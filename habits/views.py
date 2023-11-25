@@ -1,4 +1,3 @@
-from flask import Response
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Q
@@ -6,7 +5,7 @@ from habits.models import Habit
 from habits.paginators import HabitPagination
 from habits.permissions import IsOwner
 from habits.serializers import HabitSerializer
-from rest_framework import status
+
 
 
 class HabitListAPIView(generics.ListAPIView):
