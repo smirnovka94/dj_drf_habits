@@ -12,22 +12,6 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
-# class UserRegisterSerializer(serializers.ModelSerializer):
-    # password = serializers.CharField(write_only=True, validators=[validate_password])
-    # tokens = serializers.SerializerMethodField()
-    #
-    # def get_tokens(self, user):
-    #     refresh = RefreshToken.for_user(user)
-    #     return {
-    #         'refresh': str(refresh),
-    #         'access': str(refresh.access_token),
-    #     }
-    #
-    # class Meta:
-    #     model = User
-    #     fields = ['username', 'email', 'password', 'tokens']
-
-########
 class UserRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
