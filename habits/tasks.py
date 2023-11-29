@@ -29,7 +29,7 @@ def send_tg(user_id, message):
         'text': message
     }
     # Отпрака сообщения
-    response = requests.post(url, data=data)
+    requests.post(url, data=data)
 
 
 def habit_massage(obj):

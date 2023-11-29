@@ -27,7 +27,6 @@ class Command(BaseCommand):
         else:
             return f"Готовся {action}"
 
-
     def handle(self, *args, **kwargs):
         habit = Habit.objects.get(id=8)
         # выводим список всех привычек
