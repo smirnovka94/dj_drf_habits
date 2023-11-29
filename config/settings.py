@@ -18,7 +18,7 @@ TG_NAME_ID = os.getenv('TG_NAME_ID')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')#'django-insecure-%7ix7n@&eu$ub8yw(@(@o70p^av)os&9+0ue+o&di2vb$n3l8-'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -162,8 +162,7 @@ REST_FRAMEWORK = {
 
 
 # Настройки для CORS
-CORS_ALLOWED_ORIGINS = [ # список источников, которым разрешено отправлять межсайтовые HTTP-запросы
-    # Замените на адрес вашего фронтенд-сервер,
+CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:9000",
     "https://read-only.example.com",
@@ -179,7 +178,8 @@ CORS_ALLOW_ALL_ORIGINS = False
 # Настройки для Celery
 
 # URL-адрес брокера сообщений
-CELERY_BROKER_URL = 'redis://localhost:6379' # Например, Redis, который по умолчанию работает на порту 6379
+# Например, Redis, который по умолчанию работает на порту 6379
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # URL-адрес брокера результатов, также Redis
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
@@ -187,8 +187,10 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 
 CELERY_BEAT_SCHEDULE = {
     'task-name': {
-        'task': 'habits.tasks.mailing_telegram',   # Путь к задаче
-        'schedule': timedelta(seconds=50),  # Расписание выполнения задачи (например, каждые 10 минут)
+        # Путь к задаче
+        'task': 'habits.tasks.mailing_telegram',
+        # Расписание выполнения задачи (например, каждые 10 минут)
+        'schedule': timedelta(seconds=50),
     },
 }
 

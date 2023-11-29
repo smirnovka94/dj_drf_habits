@@ -1,7 +1,5 @@
 from django.core.management import BaseCommand
-
 from habits.models import Habit
-
 from users.models import User
 
 
@@ -9,7 +7,6 @@ class Command(BaseCommand):
     """
     Класс привычек.
     """
-
     def handle(self, *args, **kwargs):
         habits_list = [
             {
@@ -73,7 +70,6 @@ class Command(BaseCommand):
                 "time_limit_seconds": 120,
                 "is_public": True
             },
-
         ]
 
         habit_for_create = []
@@ -81,7 +77,6 @@ class Command(BaseCommand):
             habit_for_create.append(
                 Habit(**habit_item)
             )
-
 
         Habit.objects.bulk_create(habit_for_create)
         print(habit_for_create)

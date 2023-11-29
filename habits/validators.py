@@ -1,5 +1,6 @@
 from rest_framework.serializers import ValidationError
 
+
 class Related_or_Award_HabitValidator:
     """Исключить одновременный выбор связанной привычки и указания вознаграждения"""
     def __call__(self, attrs):
@@ -7,7 +8,9 @@ class Related_or_Award_HabitValidator:
         award = attrs.get('award')
 
         if related_habit and award:
-            raise ValidationError('Вы должны указать либо связанную привычку, либо признак приятной привычки, или указать принак приятной привычки')
+            raise ValidationError('Вы должны указать либо связанную привычку, либо признак приятной привычки, '
+                                  'или указать принак приятной привычки')
+
 
 class Time_limit_seconds_HabitValidator:
     """Время выполнения должно быть не больше 120 секунд."""
@@ -16,6 +19,7 @@ class Time_limit_seconds_HabitValidator:
         if time_limit_seconds > 120:
             raise ValidationError('Время на выполнение не более 2х минут')
 
+
 class Related_is_pleasant_habit_HabitValidator:
     """В связанные привычки могут попадать только привычки с признаком приятной привычки"""
     def __call__(self, attrs):
@@ -23,6 +27,7 @@ class Related_is_pleasant_habit_HabitValidator:
         if related_habit and not related_habit.is_pleasant_habit:
             raise ValidationError('В связанные привычки могут попадать только привычки с признаком приятной привычки')
         return attrs
+
 
 class Pleasant_HabitValidator:
     """У приятной привычки не может быть вознаграждения или связанной привычки."""
@@ -34,6 +39,7 @@ class Pleasant_HabitValidator:
             if related_habit or award:
                 raise ValidationError(
                     'У приятной привычки не может быть вознаграждения или связанной привычки.')
+
 
 class Time_period_days_HabitValidator:
     """Нельзя выполнять привычку реже, чем 1 раз в 7 дней"""

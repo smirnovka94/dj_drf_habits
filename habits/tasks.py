@@ -8,6 +8,7 @@ from celery import shared_task
 token = TG_TOKEN
 user_id = TG_NAME_ID
 
+
 def get_telegram_id():
     """Функция для получения ID пользователей"""
     url = f'https://api.telegram.org/bot{token}/getUpdates'
@@ -18,16 +19,18 @@ def get_telegram_id():
         user_ides.append(user["message"]['from']['id'])
     return user_ides
 
+
 def send_tg(user_id, message):
     """Функция для отправки уведомлений в телеграмм бот"""
-
     token = TG_TOKEN
     url = f'https://api.telegram.org/bot{token}/sendMessage'
     data = {
         'chat_id': user_id,
         'text': message
     }
-    response = requests.post(url, data=data) #Отпрака сообщения
+    # Отпрака сообщения
+    response = requests.post(url, data=data)
+
 
 def habit_massage(obj):
     """Функция генерации сообщения рассылки"""

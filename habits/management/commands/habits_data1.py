@@ -2,6 +2,7 @@ from django.core.management import BaseCommand
 from habits.models import Habit
 from users.models import User
 
+
 class Command(BaseCommand):
     """
     Класс привычек.
@@ -65,7 +66,6 @@ class Command(BaseCommand):
             habit_for_create.append(
                 Habit(**habit_item)
             )
-
 
         Habit.objects.bulk_create(habit_for_create)
         print(habit_for_create)

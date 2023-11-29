@@ -52,6 +52,7 @@ class HabitTestCases(APITestCase):
             time_limit_seconds=120,
             time_period_days=2
         )
+
     def test_create_habit(self):
         """Тест создание привычки"""
         data = {
@@ -151,6 +152,8 @@ class HabitTestCases(APITestCase):
             response.status_code,
             status.HTTP_204_NO_CONTENT
         )
+
+
 class HabitValidatorCreateTestCase(APITestCase):
     """Тесты проверки Валидаторов"""
     def setUp(self) -> None:
@@ -186,7 +189,6 @@ class HabitValidatorCreateTestCase(APITestCase):
             is_public=True,
             time_period_days=2
         )
-
 
     def test_Related_or_Award_HabitValidator(self):
         """Тест на ограничение: Исключить одновременный выбор связанной привычки и указания вознаграждения"""
@@ -256,6 +258,7 @@ class HabitValidatorCreateTestCase(APITestCase):
             responce.status_code,
             status.HTTP_400_BAD_REQUEST
         )
+
     def test_Pleasant_HabitValidator(self):
         """Тест на ограничение: У приятной привычки не может быть вознаграждения или связанной привычки"""
         data = {
@@ -278,6 +281,7 @@ class HabitValidatorCreateTestCase(APITestCase):
             responce.status_code,
             status.HTTP_400_BAD_REQUEST
         )
+
     def test_Time_period_days_HabitValidator(self):
         """Тест на ограничение: Нельзя выполнять привычку реже, чем 1 раз в 7 дней"""
         data = {
