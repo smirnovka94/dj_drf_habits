@@ -1,4 +1,6 @@
 from django.core.management.base import BaseCommand
+
+from config.settings import TG_NAME_ID
 from users.models import User
 
 
@@ -11,7 +13,8 @@ class Command(BaseCommand):
             first_name='Admin',
             is_superuser=True,
             is_staff=True,
-            is_active=True
+            is_active=True,
+            telegram_id=TG_NAME_ID
         )
 
         user.set_password("qwerty88")
