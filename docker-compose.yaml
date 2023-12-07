@@ -11,7 +11,9 @@ services:
     container_name:
       postgres
     environment:
-      - POSTGRES_PASSWORD=ghjtrn88
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=drf_habits
       - PGDATA=/var/lib/postgresql/data
     volumes:
       - pg_data:/var/lib/postgresql/data

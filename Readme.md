@@ -1,4 +1,6 @@
 # Установка и использование
+Запустить Docker
+
 Клонируем репозиторий
 
 #### Устанавливаем виртуальное окружение 
@@ -9,38 +11,27 @@ python -m venv env
 ```
 env\Scripts\activate.bat
 ```
-#### Устанавливаем библиотеки
-```
-pip install -r requirements.txt
-```
 
-#### Создаем базу данных в PgAdmin с именем <drf_test>
-Создаем файл<.env>
+#### создаем бота в Telegramm BotFathe
+получаем token to access the HTTP API
+
+#### Создаем файл<.env>
 .env.template переименовать на .env
 
-#### Выполнить миграции
+#### Развернуть контейнер 
 ```
-python manage.py makemigrations
-python manage.py migrate
+docker-compose build
 ```
-
-#### Создаем superuser
-login: kirill@sky.pro
-password: qwerty88
+#### Запустить контейнер 
 ```
-python manage.py super_user
+docker-compose up
 ```
-
-#### Загрузить базу данных
+#### Если возникли проблемы создать базу данных в PgAdmin с именем <drf_habits>
 ```
-python manage.py users_data
-python manage.py habits_data1
-python manage.py habits_data2
+docker-compose exec db psql -U postgres
+create database drf_habits;
 ```
-#### Добавить пользователям ID Телеграмм чата
-заполнить параметр: User.telegram_id
-
-#### Локальный тест файл для отправлки сообщения в телеграмм
+После чего повторить команду
 ```
-python manage.py test_run_send_TG
+docker-compose up
 ```
